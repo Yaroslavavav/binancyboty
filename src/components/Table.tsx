@@ -12,16 +12,19 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
       title: 'Agent ID',
       dataIndex: 'agentId',
       key: 'agentId',
+      width: '5%',
     },
     {
       title: 'State ID',
       dataIndex: 'stateId',
       key: 'stateId',
+      width: '5%',
     },
     {
       title: 'Configuration',
       dataIndex: 'configuration',
       key: 'configuration',
+      width: '20%',
       render: (value: any) => {
         return (
           <pre style={{ maxHeight: '250px', overflowY: 'scroll' }}>
@@ -34,6 +37,7 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
       title: 'Deals History',
       dataIndex: 'dealHistory',
       key: 'dealHistory',
+      width: '10%',
       render: (deals: any[]) => {
         return <div>{deals.join(', ')}</div>;
       },
@@ -42,13 +46,13 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
       title: 'Logs',
       dataIndex: 'logs',
       key: 'logs',
-      width: '30%',
+      width: '15%',
       render: (logs: any[]) => {
         return <div>{logs.join(', ')}</div>;
       },
     },
     {
-      title: '',
+      title: 'Actions',
       dataIndex: '',
       key: '',
       width: '5%',
@@ -82,6 +86,7 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
         rowKey={(item) => item.agentId}
         columns={columns}
         scroll={{ x: 950, y: 'calc(100vh - 220px)' }}
+        pagination={false}
       />
     </div>
   );

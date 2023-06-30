@@ -84,6 +84,7 @@ const App = observer(() => {
       <h1>Hello, Sanyek! {`>:D`}</h1>
       <Button
         type="primary"
+        style={{ backgroundColor: '#389e0d', marginBottom: '20px' }}
         onClick={async () => {
           const min = 10;
           const max = 100;
