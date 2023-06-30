@@ -81,6 +81,7 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
         dataSource={data}
         rowKey={(item) => item.agentId}
         columns={columns}
+        scroll={{ x: 950, y: 'calc(100vh - 220px)' }}
       />
     </div>
   );
