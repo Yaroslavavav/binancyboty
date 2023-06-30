@@ -39,7 +39,7 @@ const App = observer(() => {
 
   return (
     <div>
-      <h1>Hello, Sanyek Epta !</h1>
+      <h1>Hello, Sanyek! {`>:D`}</h1>
       <AgentTable data={agents} />
     </div>
   );
