@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eslint src && webpack serve --mode development --open",
     "dev": "eslint src && webpack-dev-server --mode=development",
-    "build": "eslint src && webpack --mode production"
+    "build": "eslint src && webpack --mode production",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
