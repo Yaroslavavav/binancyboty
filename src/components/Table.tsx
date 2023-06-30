@@ -54,8 +54,25 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
       dataIndex: 'logs',
       key: 'logs',
       width: '15%',
-      render: (logs: any[]) => {
-        return <div>{logs.join(', ')}</div>;
+      render: (logs: any[], record: any) => {
+        return (
+          <ol style={{ margin: 0, padding: 0 }}>
+            {logs.map((item, index) => {
+              return (
+                <li
+                  key={`list-${item}-${record.agentId}`}
+                  style={{
+                    borderBottom: '2px solid #8c8c8c',
+                    paddingBottom: '8px',
+                    marginBottom: '12px',
+                  }}
+                >
+                  {item}
+                </li>
+              );
+            })}
+          </ol>
+        );
       },
     },
     {
