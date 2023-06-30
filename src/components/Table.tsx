@@ -27,7 +27,14 @@ const AgentTable: React.FC<{ data: any[]; refetchAgents: () => void }> = ({
       width: '20%',
       render: (value: any) => {
         return (
-          <pre style={{ maxHeight: '250px', overflowY: 'scroll' }}>
+          <pre
+            style={{
+              maxHeight: '250px',
+              overflowY: 'scroll',
+              fontWeight: 'bold',
+              backgroundColor: `rgba(64, 201, 3, 0.2)`,
+            }}
+          >
             {JSON.stringify(value, null, 2)}
           </pre>
         );

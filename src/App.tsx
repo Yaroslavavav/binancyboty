@@ -72,7 +72,7 @@ const App = observer(() => {
   const fetchAgents = async () => {
     const resp = await agentStore.getAgents();
 
-    setAgents(resp?.data);
+    setAgents(resp?.data.sort((a: any, b: any) => b.agentId - a.agentId));
   };
 
   React.useEffect(() => {
