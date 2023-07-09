@@ -13,7 +13,7 @@ export const createHttpClient = ({
   const client = axios.create({ baseURL, paramsSerializer });
 
   client.interceptors.request.use(async (request) => {
-    request.headers ||= {};
+    // request.headers = {};
     // request.headers.Authorization = await authStore.ensureToken();
     request.headers['x-client'] = 'binancybooty';
     request.headers['content-type'] = 'application/json';

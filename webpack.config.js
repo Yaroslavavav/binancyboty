@@ -11,8 +11,9 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    extensions: ['.js', '.jsx', '.tsx', '.ts'],
+    extensions: ['.js', '.jsx', '.tsx', '.ts', '.css', '.scss'],
   },
+
   module: {
     rules: [
       {
@@ -23,6 +24,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.tsx?$/,
+        // loader: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            compilerOptions: {
+              noEmit: false, // this option will solve the issue
+            },
+          },
+        },
       },
     ],
   },
@@ -36,6 +49,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
+    historyApiFallback: true,
     port: 3000,
   },
 };
