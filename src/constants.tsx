@@ -38,7 +38,7 @@ export const stateIdStatuses: {
   },
   4: {
     label: 'WatchDeal',
-    icon: <EyeOutlined style={{ color: '#4d018d', fontSize: 24 }} />,
+    icon: <LoadingOutlined style={{ color: '#00ce06', fontSize: 24 }} />,
   },
   5: {
     label: 'TakeProfit',
