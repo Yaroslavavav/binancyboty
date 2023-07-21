@@ -3,10 +3,18 @@ import type { AxiosResponse } from 'axios';
 import { agents } from './agentsHttpClient';
 
 class AgentsApi {
-  async getAgents() {
+  async getAgentsList() {
     try {
       const response = await agents.get<any[]>('/agent');
       return response || [];
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async getAgent(id: string) {
+    try {
+      const response = await agents.get<any[]>(`/agent/${id}`);
+      return response || {};
     } catch (error) {
       console.error(error);
     }
@@ -22,12 +30,8 @@ class AgentsApi {
   }
 
   async deleteAgent(agentId: string) {
-    try {
-      const response = await agents.post<any>(`/agent/kill/${agentId}`);
-      return response;
-    } catch (error) {
-      console.error(error);
-    }
+    const response = await agents.post<any>(`/agent/kill/${agentId}`);
+    return response;
   }
 }
 

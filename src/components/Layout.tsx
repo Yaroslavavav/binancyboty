@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Typography } from 'antd';
+import { Empty, Space, Spin, Typography } from 'antd';
 // impor
 import { Link } from 'react-router-dom';
 import classes from './style.module.scss';
@@ -9,9 +9,32 @@ const { Title } = Typography;
 
 export const Layout: React.FC<{
   children: React.ReactNode;
-  title?: string;
+  title?: string | React.ReactNode;
   backArrow?: boolean;
-}> = ({ children, title = '', backArrow = false }) => {
+  loading?: boolean;
+  empty?: boolean;
+}> = ({
+  children,
+  title = '',
+  backArrow = false,
+  loading = false,
+  empty = false,
+}) => {
+  if (loading) {
+    return (
+      <main className={classes.main}>
+        <Spin style={{ width: '100%', margin: '0 auto' }} />
+      </main>
+    );
+  }
+  if (empty) {
+    return (
+      <main className={classes.main}>
+        <Empty style={{ width: '100%', margin: '0 auto' }} />
+      </main>
+    );
+  }
+
   return (
     <main className={classes.main}>
       {backArrow && (

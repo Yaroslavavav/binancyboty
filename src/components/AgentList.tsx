@@ -16,13 +16,13 @@ interface InjectedProps {
 type Props = OwnProps & InjectedProps;
 
 function RawAgentsList({ agentsStore }: Props): React.ReactElement {
-  const { agents, deleteAgent, getAgents } = agentsStore;
+  const { agents, deleteAgent, getAgentsList } = agentsStore;
 
   const [loading, setLoading] = React.useState<boolean>(true);
 
   const fetchAgents = React.useCallback(async () => {
     try {
-      await getAgents();
+      await getAgentsList();
     } catch (error) {
       console.log(error);
       message.error(`Something went wrong: ${error}`);

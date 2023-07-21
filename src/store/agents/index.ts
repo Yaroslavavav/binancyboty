@@ -5,22 +5,38 @@ import { agentsApi } from '../../api';
 
 class AgentStore {
   agents: any = [];
+  singleAgent: any = null;
 
   constructor() {
     makeObservable(this, {
       agents: observable,
-      getAgents: action,
+      singleAgent: observable,
+      getAgentsList: action,
+      getAgent: action,
+
+      setSingleAgent: action,
+
       createAgent: action,
       deleteAgent: action,
     });
   }
 
-  getAgents = async () => {
-    const data = await agentsApi.getAgents();
+  setSingleAgent = (newAgent: any) => {
+    this.singleAgent = newAgent;
+  };
+
+  getAgentsList = async () => {
+    const data = await agentsApi.getAgentsList();
 
     if (data) {
       this.agents = [...data.data];
     }
+  };
+
+  getAgent = async (agentId: string) => {
+    const data = await agentsApi.getAgent(agentId);
+
+    this.setSingleAgent(data?.data);
   };
 
   createAgent = async (agentId: string) => {

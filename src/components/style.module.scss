@@ -18,9 +18,19 @@
     display: flex;
     align-items: center;
     padding: 12px 32px;
-    border: 1px solid teal;
+    border: 2px solid #ecf1f5;
     border-radius: 8px;
     width: 100%;
+    -webkit-box-shadow: 0px 12px 20px 0px rgba(199, 202, 231, 0.1);
+    -moz-box-shadow: 0px 12px 20px 0px rgba(199, 202, 231, 0.1);
+    box-shadow: 0px 12px 20px 0px rgba(199, 202, 231, 0.1);
+
+    &_left {
+      & :global .ant-space-item {
+        min-width: 35px;
+      }
+    }
+
     .actions {
       justify-self: flex-end;
       margin-left: auto;
@@ -36,4 +46,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.deals {
+  &__item {
+    padding: 6px 10px;
+    border-radius: 6px;
+    &.success {
+      background-color: #00ce06;
+    }
+    &.error {
+      background-color: #eb0c00;
+    }
+  }
 }

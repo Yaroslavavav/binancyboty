@@ -1,0 +1,43 @@
+.header {
+  &__id {
+    font-size: 42px;
+    font-weight: bold;
+    padding: 24px;
+    border-radius: 24px;
+    border: 3px solid #969696;
+  }
+  &__symbol {
+    font-size: 42px;
+    font-weight: bold;
+  }
+  &__wrapper {
+    padding: 40px 0;
+  }
+}
+
+.main {
+  &__icon {
+    & :global .anticon {
+      font-size: 32px !important;
+    }
+  }
+  &__status {
+    font-size: 28px;
+  }
+}
+
+.agentStatus {
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 16px;
+}
+
+.card {
+  &__row {
+    width: 100%;
+    justify-content: space-between;
+  }
+  &__text {
+    font-size: 16px;
+  }
+}
