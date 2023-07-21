@@ -38,16 +38,18 @@ const AgentItem: React.FC<OwnProps> = ({ item, handleStop, onDelete }) => {
 
   return (
     <div className={classes.list__item}>
-      <Space size={10} className={classes.list__item_left}>
-        <Tooltip title={stateIdStatuses[stateId].label}>
-          {stateIdStatuses[stateId].icon}
-        </Tooltip>
-        <Link to={`/${agentId}`}>#{agentId}</Link>
-        <Text style={{ fontWeight: 'bold' }}>
-          {symbol}:{intervalStatuses[interval]}
-        </Text>
-        <DealsHistory deals={dealHistory || []} />
-      </Space>
+      <Link to={`/${agentId}`} style={{ cursor: 'pointer' }}>
+        <Space size={10} className={classes.list__item_left}>
+          <Tooltip title={stateIdStatuses[stateId].label}>
+            {stateIdStatuses[stateId].icon}
+          </Tooltip>
+          <Text style={{ fontSize: '16px' }}>#{agentId}</Text>
+          <Text style={{ fontWeight: 'bold' }}>
+            {symbol}:{intervalStatuses[interval]}
+          </Text>
+          <DealsHistory deals={dealHistory || []} />
+        </Space>
+      </Link>
       <Space size={10} className={classes.actions}>
         <Button type="primary" onClick={handleStop}>
           stop

@@ -93,22 +93,68 @@ function RawAgentPage({ agentsStore }: Props): React.ReactElement {
   const items: TabsProps['items'] = [
     {
       key: '1',
-      label: `Overview`,
+      label: `Deals history`,
       children: (
+        <List
+          header={false}
+          footer={false}
+          bordered
+          dataSource={[]}
+          renderItem={(item: string) => (
+            <List.Item>
+              <Text copyable>{item}</Text>
+            </List.Item>
+          )}
+        />
+      ),
+    },
+    {
+      key: '2',
+      label: `Logs`,
+      children: (
+        <List
+          header={false}
+          footer={false}
+          bordered
+          dataSource={logs}
+          renderItem={(item: string) => (
+            <List.Item>
+              <Text copyable>{item}</Text>
+            </List.Item>
+          )}
+        />
+      ),
+    },
+  ];
+
+  return (
+    <Layout
+      title={
         <Row gutter={24} className={classes.main__wrapper}>
           <Col span={14}>
-            <Space size={16} align="center">
-              <div className={classes.main__icon}>
-                {stateIdStatuses[stateId].icon}
-              </div>
-              <Text className={classes.main__status}>
-                {stateIdStatuses[stateId].label}
-              </Text>
-              <DealsHistory deals={dealHistory} bigIcon />
+            <Space className={classes.header__wrapper} size={12}>
+              <Text className={classes.header__id}>#{id}</Text>
+              <Space direction="vertical" size={2}>
+                <Text className={classes.header__symbol}>
+                  {symbol}:{intervalStatuses[interval]}
+                </Text>
+                <Space size={12} align="center">
+                  <div className={classes.main__icon}>
+                    {stateIdStatuses[stateId].icon}
+                  </div>
+                  <Text className={classes.main__status}>
+                    {stateIdStatuses[stateId].label}
+                  </Text>
+                  <div className={classes.main__dealsHistory}>
+                    <DealsHistory deals={dealHistory} />
+                  </div>
+                </Space>
+              </Space>
             </Space>
           </Col>
           <Col span={10}>
             <Card
+              className={classes.card__wrapper}
               title={
                 <Space className={classes.card__row}>
                   <Text
@@ -144,36 +190,6 @@ function RawAgentPage({ agentsStore }: Props): React.ReactElement {
             </Card>
           </Col>
         </Row>
-      ),
-    },
-    {
-      key: '2',
-      label: `Logs`,
-      children: (
-        <List
-          header={false}
-          footer={false}
-          bordered
-          dataSource={logs}
-          renderItem={(item: string) => (
-            <List.Item>
-              <Text copyable>{item}</Text>
-            </List.Item>
-          )}
-        />
-      ),
-    },
-  ];
-
-  return (
-    <Layout
-      title={
-        <Space className={classes.header__wrapper} size={12}>
-          <Text className={classes.header__id}>#{id}</Text>
-          <Text className={classes.header__symbol}>
-            {symbol}:{intervalStatuses[interval]}
-          </Text>
-        </Space>
       }
       backArrow={true}
       loading={!singleAgent && loading}

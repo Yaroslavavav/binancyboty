@@ -54,6 +54,8 @@ function RawAgentsList({ agentsStore }: Props): React.ReactElement {
             try {
               setLoading(true);
               await deleteAgent(item.agentId);
+
+              await getAgentsList();
             } catch (error) {
               console.log(error);
               message.error(`Oops, try again later, error: ${error} `);
