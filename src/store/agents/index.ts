@@ -29,7 +29,9 @@ class AgentStore {
     const data = await agentsApi.getAgentsList();
 
     if (data) {
-      this.agents = [...data.data];
+      this.agents = [...data.data].sort(
+        (a: any, b: any) => b.agentId - a.agentId
+      );
     }
   };
 
