@@ -47,3 +47,28 @@
     font-size: 16px;
   }
 }
+
+@media (max-width: 1024px) {
+  .main {
+    &__header {
+      flex-direction: column;
+      & > div {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .header {
+    &__id {
+      font-size: 36px;
+      padding: 12px;
+    }
+    &__symbol {
+      font-size: 32px;
+      line-height: 1;
+    }
+    &__wrapper {
+      padding: 20px 0;
+    }
+  }
+}

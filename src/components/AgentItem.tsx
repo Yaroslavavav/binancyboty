@@ -11,7 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 
 import { intervalStatuses, stateIdStatuses } from '../constants';
-import DealsHistory from './DealsHistory';
+import DealsHistory from './DealsCounters';
 
 import classes from './style.module.scss';
 

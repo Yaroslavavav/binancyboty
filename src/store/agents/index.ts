@@ -5,7 +5,7 @@ import { agentsApi } from '../../api';
 
 class AgentStore {
   agents: any = [];
-  singleAgent: any = null;
+  singleAgent: any = { configuration: { setId: {} } };
 
   constructor() {
     makeObservable(this, {
@@ -35,8 +35,17 @@ class AgentStore {
 
   getAgent = async (agentId: string) => {
     const data = await agentsApi.getAgent(agentId);
+    const binanceInfo = await agentsApi.getRefreshedAgentPriceInfo(agentId);
 
-    this.setSingleAgent(data?.data);
+    this.setSingleAgent({ ...data?.data, binanceInfo });
+  };
+
+  refreshAgentPriceInfo = async (agentId: string) => {
+    const data = await agentsApi.getRefreshedAgentPriceInfo(agentId);
+
+    if (this.singleAgent) {
+      this.setSingleAgent({ ...this.singleAgent, binanceInfo: { ...data } });
+    }
   };
 
   createAgent = async (agentId: string) => {

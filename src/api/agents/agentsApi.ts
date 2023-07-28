@@ -20,6 +20,15 @@ class AgentsApi {
     }
   }
 
+  async getRefreshedAgentPriceInfo(id: string) {
+    try {
+      const response = await agents.get<any>(`/agent/live/${id}`);
+      return response.data || {};
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async createAgent(agent: any) {
     try {
       const response = await agents.post<any>('/agent/spawn', agent);

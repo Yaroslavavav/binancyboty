@@ -30,6 +30,14 @@ export const Layout: React.FC<{
   if (empty) {
     return (
       <main className={classes.main}>
+        {backArrow && (
+          <Link to="/">
+            <Space>
+              <ArrowLeftOutlined />
+              Back
+            </Space>
+          </Link>
+        )}
         <Empty style={{ width: '100%', margin: '0 auto' }} />
       </main>
     );
