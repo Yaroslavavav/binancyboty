@@ -10,7 +10,7 @@ export const createHttpClient = ({
   paramsSerializer,
   handleError,
 }: ClientConfig) => {
-  const client = axios.create({ baseURL, paramsSerializer });
+  const client = axios.create({ baseURL, paramsSerializer, timeout: 30000 });
 
   client.interceptors.request.use(async (request) => {
     // request.headers = {};
