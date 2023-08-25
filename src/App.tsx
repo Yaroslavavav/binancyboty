@@ -2,9 +2,10 @@ import React, { Suspense } from 'react';
 import { observer } from 'mobx-react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageLoader from './components/PageLoader';
-
 const HomePage = React.lazy(() => import('./pages/Home'));
 const AgentPage = React.lazy(() => import('./pages/Agent'));
+const RegistrationPage = React.lazy(() => import('./pages/Registration'));
+const LoginPage = React.lazy(() => import('./pages/Login'));
 // import styles from './index.module.scss'; // Import SCSS module styles
 
 const testAgent = {
@@ -37,6 +38,8 @@ const App = observer(() => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/:id" element={<AgentPage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

@@ -50,8 +50,9 @@ class AgentStore {
     }
   };
 
-  createAgent = async (agentId: string) => {
-    await agentsApi.createAgent(agentId);
+  createAgent = async (newAgent: string) => {
+    const data = await agentsApi.createAgent(newAgent);
+    return data;
   };
 
   deleteAgent = async (agentId: string) => {

@@ -188,7 +188,7 @@ function RawAgentPage({ agentsStore }: Props): React.ReactElement {
           header={false}
           footer={false}
           bordered
-          dataSource={logs}
+          dataSource={logs.slice().reverse()}
           renderItem={(item: string) => (
             <List.Item>
               <Text copyable>{item}</Text>

@@ -48,6 +48,19 @@
   }
 }
 
+.agentModal {
+  & > div {
+    width: 100% !important;
+    max-width: 800px;
+    & :global .ant-modal-content {
+      padding: 40px 45px 20px;
+      @media (max-width: 900px) {
+        padding: 40px 25px 20px;
+      }
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .main {
     &__header {
@@ -57,14 +70,17 @@
         width: 100%;
       }
     }
+    &__status {
+      font-size: 18px;
+    }
   }
   .header {
     &__id {
-      font-size: 36px;
+      font-size: 24px;
       padding: 12px;
     }
     &__symbol {
-      font-size: 32px;
+      font-size: 24px;
       line-height: 1;
     }
     &__wrapper {

@@ -17,6 +17,14 @@ export const intervalStatuses: { [key: number]: string } = {
   4: 'M1',
 };
 
+export const intervalStatusesInverted: { [key: string]: number } = {
+  H1: 0,
+  H4: 1,
+  D1: 2,
+  W1: 3,
+  M1: 4,
+};
+
 export const stateIdStatuses: {
   [key: number]: { label: string; icon: React.ReactNode };
 } = {
