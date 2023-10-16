@@ -5,17 +5,23 @@ interface ClientConfig
   handleError?: (error: AxiosError) => Promise<any>;
 }
 
-export const createHttpClient = ({
-  baseURL,
-  paramsSerializer,
-  handleError,
-}: ClientConfig) => {
-  const client = axios.create({ baseURL, paramsSerializer, timeout: 30000 });
+export const createHttpClient = ({ baseURL, handleError }: ClientConfig) => {
+  const client = axios.create({
+    baseURL,
+  });
 
   client.interceptors.request.use(async (request) => {
-    // request.headers = {};
-    // request.headers.Authorization = await authStore.ensureToken();
-    request.headers['x-client'] = 'binancybooty';
+    const token = localStorage.getItem('coolToken');
+
+    if (token) {
+      request.headers.Authorization = `Bearer ${token}`;
+    }
+
+    if (!request.headers['Content-Type']) {
+      request.headers['Content-Type'] = 'application/json';
+    }
+
+    request.headers.Accept = 'application/json';
     request.headers['content-type'] = 'application/json';
     request.headers['accept'] = 'application/json';
     request.headers['Access-Control-Allow-Origin'] = '*';

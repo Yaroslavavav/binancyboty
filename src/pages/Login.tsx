@@ -1,12 +1,14 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input, Typography } from 'antd';
+import { Button, Form, Input, Typography } from 'antd';
 import { Layout } from '../components/Layout';
 import { IronManChest } from '../components/IronManChest';
+import { authApi } from '../api/auth';
 
 const { Text } = Typography;
 
-const onFinish = (values: any) => {
-  console.log('Success:', values);
+const onFinish = async (values: any) => {
+  console.log('lolk?');
+  await authApi.login(values);
 };
 
 const onFinishFailed = (errorInfo: any) => {

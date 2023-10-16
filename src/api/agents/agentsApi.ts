@@ -6,6 +6,9 @@ class AgentsApi {
   async getAgentsList() {
     try {
       const response = await agents.get<any[]>('/agent');
+
+      console.log(response);
+
       return response || [];
     } catch (error) {
       console.error(error);

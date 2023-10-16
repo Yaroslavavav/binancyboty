@@ -7,6 +7,10 @@ const { Text } = Typography;
 
 const onFinish = async (values: any) => {
   const data = await authApi.registration(values);
+
+  if (data) {
+    console.log('do somethign');
+  }
 };
 
 const onFinishFailed = (errorInfo: any) => {
