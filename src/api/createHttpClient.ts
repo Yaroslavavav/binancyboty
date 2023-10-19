@@ -14,7 +14,7 @@ export const createHttpClient = ({ baseURL, handleError }: ClientConfig) => {
     const token = localStorage.getItem('coolToken');
 
     if (token) {
-      request.headers.Authorization = `Bearer ${token}`;
+      request.headers.Authorization = `${token}`;
     }
 
     if (!request.headers['Content-Type']) {
